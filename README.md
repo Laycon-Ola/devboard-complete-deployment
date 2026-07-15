@@ -73,16 +73,16 @@ This project demonstrates a complete CI/CD deployment pipeline for a containeriz
 ###### Technology Stack
 
     Component	                      Technology
-    Backend	              ->        Node.js + Express
+    Backend	                ->        Node.js + Express
     Frontend	            ->        React + vite
     Database	            ->        PostgreSQL
-    Infrastructure	      ->        Terraform
+    Infrastructure	        ->        Terraform
     Containerization	    ->        Docker
     Orchestration	        ->        Docker Compose
     CI/CD	                ->        GitHub Actions
     Registry	            ->        Amazon ECR
     Cloud	                ->        AWS EC2
-    Storage	              ->        Amazon S3
+    Storage	                ->        Amazon S3
     Remote Management	    ->        AWS Systems Manager
 
 *******************************************************************************************************************************************************************
