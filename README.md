@@ -41,7 +41,7 @@ This project demonstrates a complete CI/CD deployment pipeline for a containeriz
         ▼                    ▼                    ▼
     Frontend              Backend             PostgreSQL 
     Container             Container           Container    
-        │                    │ (SQL)
+        │ (HTTPS)            │ (SQL)
         ▼                    ├──────────────► PostgreSQL
      Browser                 │ (HTTPS AWS SDK / S3 API)
                              └──────────────► Amazon S3
@@ -51,37 +51,21 @@ This project demonstrates a complete CI/CD deployment pipeline for a containeriz
 ##### Deployment Flow
 
 push source code to github
-
-↓
-
+          ↓
 GitHub Actions starts
-
-↓
-
+          ↓
 Backend Docker image is built
-
-↓
-
+          ↓
 Frontend Docker image is built
-
-↓
-
+          ↓
 Images are pushed to Amazon ECR
-
-↓
-
+          ↓
 GitHub Actions invokes AWS Systems Manager
-
-↓
-
+          ↓
 EC2 pulls the newest images
-
-↓
-
+          ↓
 Docker Compose updates the running containers
-
-↓
-
+          ↓
 Application becomes available on Port 80
 
 *******************************************************************************************************************************************************************
