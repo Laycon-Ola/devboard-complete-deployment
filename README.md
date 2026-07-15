@@ -23,33 +23,27 @@ This project demonstrates a complete CI/CD deployment pipeline for a containeriz
 #### Architecture Diagram
 
                         Source Code
-                             │
-                        Git Push
-                             │
+                             │ (Git Push)
                              ▼
                     GitHub Repository
-                             │
+                             │ (Event Trigger)
                              ▼
                   GitHub Actions CI/CD
-                             │
-                     Build & Push Images
-                             │
+                             │ (Build Docker Image & Push Image)
                              ▼
                         Amazon ECR
-                             │
-                     Deploy via AWS SSM
-                             │
+                             │ (Deploy via AWS SSM)
                              ▼
-                        EC2 Instance
-                  (Docker Compose)
-                             │
+                        EC2 Instance 
+                             │ (Pulls Image & Runs Docker Compose)
         ┌────────────────────┼────────────────────┐
         │                    │                    │
         ▼                    ▼                    ▼
-  Frontend Container   Node.js API Container   PostgreSQL Container
-        │                    │
+    Frontend              Backend             PostgreSQL 
+    Container             Container           Container    
+        │                    │ (SQL)
         ▼                    ├──────────────► PostgreSQL
-     Browser                 │
+     Browser                 │ (HTTPS AWS SDK / S3 API)
                              └──────────────► Amazon S3
 
 *******************************************************************************************************************************************************************
