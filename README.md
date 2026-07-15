@@ -50,54 +50,54 @@ This project demonstrates a complete CI/CD deployment pipeline for a containeriz
 
 ##### Deployment Flow
 
-push source code to github
-          ↓
-GitHub Actions starts
-          ↓
-Backend Docker image is built
-          ↓
-Frontend Docker image is built
-          ↓
-Images are pushed to Amazon ECR
-          ↓
-GitHub Actions invokes AWS Systems Manager
-          ↓
-EC2 pulls the newest images
-          ↓
-Docker Compose updates the running containers
-          ↓
-Application becomes available on Port 80
+    push source code to github
+              ↓
+    GitHub Actions starts
+              ↓
+    Backend Docker image is built
+              ↓
+    Frontend Docker image is built
+              ↓
+    Images are pushed to Amazon ECR
+              ↓
+    GitHub Actions invokes AWS Systems Manager
+              ↓
+    EC2 pulls the newest images
+              ↓    
+    Docker Compose updates the running containers
+              ↓
+    Application becomes available on Port 80
 
 *******************************************************************************************************************************************************************
 
 ###### Technology Stack
 
-Component	                      Technology
-Backend	              ->        Node.js + Express
-Frontend	            ->        React + vite
-Database	            ->        PostgreSQL
-Infrastructure	      ->        Terraform
-Containerization	    ->        Docker
-Orchestration	        ->        Docker Compose
-CI/CD	                ->        GitHub Actions
-Registry	            ->        Amazon ECR
-Cloud	                ->        AWS EC2
-Storage	              ->        Amazon S3
-Remote Management	    ->        AWS Systems Manager
+    Component	                      Technology
+    Backend	              ->        Node.js + Express
+    Frontend	            ->        React + vite
+    Database	            ->        PostgreSQL
+    Infrastructure	      ->        Terraform
+    Containerization	    ->        Docker
+    Orchestration	        ->        Docker Compose
+    CI/CD	                ->        GitHub Actions
+    Registry	            ->        Amazon ECR
+    Cloud	                ->        AWS EC2
+    Storage	              ->        Amazon S3
+    Remote Management	    ->        AWS Systems Manager
 
 *******************************************************************************************************************************************************************
 
 ###### Repository Structure
 
-.
-├── backend/
-├── frontend/
-├── terraform/
-├── .github/
-│   └── workflows/
-├── docker-compose.yml
-├── README.md
-└── .gitignore
+    .
+    ├── backend/
+    ├── frontend/
+    ├── terraform/
+    ├── .github/
+    │   └── workflows/
+    ├── docker-compose.yml
+    ├── README.md
+    └── .gitignore
 
 *******************************************************************************************************************************************************************
 
