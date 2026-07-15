@@ -22,36 +22,35 @@ This project demonstrates a complete CI/CD deployment pipeline for a containeriz
 
 #### Architecture Diagram
 
-  .                  Source Code
-                        │
-                        │ (Git Push)
-                        ▼
-                 GitHub Repository
-                        │ (Event Triggers)
-                        ▼
-               GitHub Actions CI/CD
-                        │ (Build Docker Image)
-                        │ (Pushes Image)
-                        ▼
-                  Amazon ECR
-                        │ (SSM Run Command - No SSH)
-                        │ (Pull Image)
-                        ▼
-                 EC2 Instance
-                        │ (Runs Docker Compose)
-      ┌─────────────────┼────────────────┐
-      │                 │                │
-      ▼                 ▼                ▼
- Frontend          Node.js API      PostgreSQL
- Container          Container        Container
-      │                  |
-      | (HTTP)           | (SQL)
-      ▼                  ▼
-  (Browser)          PostgreSQL
-                         │
-                         │ HTTPS (AWS SDK / S3 API)
-                         ▼
-                   Amazon S3 Bucket
+                        Source Code
+                             │
+                        Git Push
+                             │
+                             ▼
+                    GitHub Repository
+                             │
+                             ▼
+                  GitHub Actions CI/CD
+                             │
+                     Build & Push Images
+                             │
+                             ▼
+                        Amazon ECR
+                             │
+                     Deploy via AWS SSM
+                             │
+                             ▼
+                        EC2 Instance
+                  (Docker Compose)
+                             │
+        ┌────────────────────┼────────────────────┐
+        │                    │                    │
+        ▼                    ▼                    ▼
+  Frontend Container   Node.js API Container   PostgreSQL Container
+        │                    │
+        ▼                    ├──────────────► PostgreSQL
+     Browser                 │
+                             └──────────────► Amazon S3
 
 *******************************************************************************************************************************************************************
 
